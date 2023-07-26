@@ -7,13 +7,15 @@ import {tr as trDili} from "date-fns/locale"
 const Task = ({ taskObj, onComplete }) => {
   
   const diffInDays = differenceInDays(new Date(taskObj.deadline), new Date());
-  const distanceToNow = formatDistanceToNow(new Date(taskObj.deadline), {locale: trDili});
+  const distanceToNow = formatDistanceToNow(new Date(taskObj.deadline), {
+    addSuffix : true,
+    locale: trDili});
 
   return (
     <div className="task">
       <h3>{taskObj.title}</h3>
       <div className="deadline">son teslim: {" "}
-        <span className = {diffInDays <= 3 ? "fayaa": "sakin"} >
+        <span className = {diffInDays <= 3 ? "bg-fayaa": "sakin"} >
           {distanceToNow}
         </span>
       </div>
