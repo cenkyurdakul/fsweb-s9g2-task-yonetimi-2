@@ -12,6 +12,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
   } = useForm({ mode: "onChange" });
 
   function mySubmit(data) {
+    console.log("data", data)
     submitFn({
       ...data,
       id: nanoid(5),
@@ -100,7 +101,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           id="deadline"
           name="deadline"
           type="date"
-          min="2023-01-25"
+          min="2023-01-25" 
         />
         {errors.deadline && <p className="input-error">{errors.deadline.message}</p>}
       </div>
